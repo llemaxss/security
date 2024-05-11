@@ -25,6 +25,9 @@ public class AppConfigByAuthManagerWithCustomUserDetailsAndCustomFilter {
 		UserDetailsService userDetailsService = userDetailsService();
 		PasswordEncoder passwordEncoder = passwordEncoder();
 		
+		/**
+		 * Методы из настроек бина SecurityFilterChain здесь не работают не смотря на то, что их тут можно указать!
+		 */
 		return httpSecurity
 			.getSharedObject(AuthenticationManagerBuilder.class)
 			.userDetailsService(userDetailsService)
@@ -36,8 +39,13 @@ public class AppConfigByAuthManagerWithCustomUserDetailsAndCustomFilter {
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
 		return httpSecurity
-			.httpBasic(Customizer.withDefaults())
+			/**
+			 * Метод можно расположить после .httpBasic() - разницы нет.
+			 * Если использовать метод .addFilterAt(), то фильтр ДОБАВИТСЯ в очередь с тем же значением order,
+			 * НО, никто не гарантирует порядок выполнения фильтров с одинаковым order!
+			 */
 			.addFilterBefore(new CustomFilter(), BasicAuthenticationFilter.class)
+			.httpBasic(Customizer.withDefaults())
 			.authorizeHttpRequests(auth -> {
 				auth.requestMatchers("/hello/security").authenticated();
 				auth.anyRequest().permitAll();
