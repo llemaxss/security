@@ -17,7 +17,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
-@EnableWebSecurity
+@EnableWebSecurity(debug = true)
 @Configuration
 public class AppConfigByAuthManagerWithCustomUserDetailsAndCustomFilter {
 	@Bean
@@ -41,11 +41,17 @@ public class AppConfigByAuthManagerWithCustomUserDetailsAndCustomFilter {
 		return httpSecurity
 			/**
 			 * Метод можно расположить после .httpBasic() - разницы нет.
+			 *
 			 * Если использовать метод .addFilterAt(), то фильтр ДОБАВИТСЯ в очередь с тем же значением order,
 			 * НО, никто не гарантирует порядок выполнения фильтров с одинаковым order!
+			 *
+			 * В методах добавления фильтра, вторым параметром указывается другой фильтр,
+			 * НО он в свою очередь не обязан быть в цепочке фильтров
 			 */
-			.addFilterBefore(new CustomFilter(), BasicAuthenticationFilter.class)
+			.addFilterBefore(new CustomFilter("CustomFilter BEFORE"), BasicAuthenticationFilter.class)
 			.httpBasic(Customizer.withDefaults())
+				.addFilterAt(new CustomFilter("CustomFilter AT"), BasicAuthenticationFilter.class)
+			.addFilterAfter(new CustomFilter("CustomFilter AFTER"), BasicAuthenticationFilter.class)
 			.authorizeHttpRequests(auth -> {
 				auth.requestMatchers("/hello/security").authenticated();
 				auth.anyRequest().permitAll();
