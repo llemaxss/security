@@ -15,8 +15,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
-/*@EnableWebSecurity
-@Configuration
+//@EnableWebSecurity
+//@Configuration
 public class AppConfigByAuthManager {
 	@Bean
 	public AuthenticationManager authenticationManager(HttpSecurity httpSecurity) throws Exception {
@@ -59,4 +59,4 @@ public class AppConfigByAuthManager {
 	private PasswordEncoder passwordEncoder() {
 		return NoOpPasswordEncoder.getInstance();
 	}
-}*/
+}
