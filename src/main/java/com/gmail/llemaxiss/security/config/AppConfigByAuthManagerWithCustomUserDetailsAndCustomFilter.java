@@ -56,6 +56,9 @@ public class AppConfigByAuthManagerWithCustomUserDetailsAndCustomFilter {
 				auth.requestMatchers("/hello/security").authenticated();
 				auth.anyRequest().permitAll();
 			})
+			.csrf(csrf -> {
+				csrf.ignoringRequestMatchers("/hello/ignore-csrf");
+			})
 			.build();
 	}
 	
