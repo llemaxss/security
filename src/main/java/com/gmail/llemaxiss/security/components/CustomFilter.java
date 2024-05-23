@@ -1,4 +1,4 @@
-package com.gmail.llemaxiss.security.config;
+package com.gmail.llemaxiss.security.components;
 
 import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;

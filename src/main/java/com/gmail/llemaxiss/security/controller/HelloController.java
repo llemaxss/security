@@ -14,9 +14,9 @@ public class HelloController {
 		return ResponseEntity.ok("Hello World!");
 	}
 	
-	@PostMapping()
-	public ResponseEntity<String> helloPost() {
-		return ResponseEntity.ok("Hello World with POST!");
+	@PostMapping("/custom-csrf")
+	public ResponseEntity<String> helloCustomCsrf() {
+		return ResponseEntity.ok("Hello custom csrf World!");
 	}
 
 	@GetMapping("/security")
@@ -25,7 +25,7 @@ public class HelloController {
 	}
 	
 	@PostMapping("/ignore-csrf")
-	public ResponseEntity<String> ignoreCsrf() {
+	public ResponseEntity<String> helloIgnoreCsrf() {
 		return ResponseEntity.ok("Hello ignored csrf World!");
 	}
 }

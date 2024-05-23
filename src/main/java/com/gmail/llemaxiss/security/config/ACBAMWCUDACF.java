@@ -1,5 +1,6 @@
 package com.gmail.llemaxiss.security.config;
 
+import com.gmail.llemaxiss.security.components.CustomFilter;
 import com.gmail.llemaxiss.security.components.CustomUserDetails;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,9 +18,12 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
-@EnableWebSecurity(debug = true)
-@Configuration
-public class AppConfigByAuthManagerWithCustomUserDetailsAndCustomFilter {
+/**
+ * AppConfigByAuthManagerWithCustomUserDetailsAndCustomFilter
+ */
+//@EnableWebSecurity(debug = true)
+//@Configuration
+public class ACBAMWCUDACF {
 	@Bean
 	public AuthenticationManager authenticationManager(HttpSecurity httpSecurity) throws Exception {
 		UserDetailsService userDetailsService = userDetailsService();

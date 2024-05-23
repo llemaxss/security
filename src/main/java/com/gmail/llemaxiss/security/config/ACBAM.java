@@ -1,6 +1,5 @@
 package com.gmail.llemaxiss.security.config;
 
-import com.gmail.llemaxiss.security.components.CustomUserDetails;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -16,9 +15,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
+/**
+ * AppConfigByAuthManager
+ */
 //@EnableWebSecurity
 //@Configuration
-public class AppConfigByAuthManagerWithCustomUserDetails {
+public class ACBAM {
 	@Bean
 	public AuthenticationManager authenticationManager(HttpSecurity httpSecurity) throws Exception {
 		UserDetailsService userDetailsService = userDetailsService();
@@ -46,16 +48,18 @@ public class AppConfigByAuthManagerWithCustomUserDetails {
 	private UserDetailsService userDetailsService() {
 		InMemoryUserDetailsManager userDetailsService = new InMemoryUserDetailsManager();
 
-		UserDetails userDetails = User.withUserDetails(
-			new CustomUserDetails("llemaxss", "12345")
-		).build();
+		UserDetails userDetails = User.builder()
+			.username("llemaxss")
+			.password("123456")
+			.authorities("READ")
+			.build();
 
 		userDetailsService.createUser(userDetails);
 
 		return userDetailsService;
 	}
 
-	public PasswordEncoder passwordEncoder() {
+	private PasswordEncoder passwordEncoder() {
 		return NoOpPasswordEncoder.getInstance();
 	}
 }
