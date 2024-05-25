@@ -2,4 +2,5 @@ ACBDB - AppConfigByDifferentBeans
 ACBAM - AppConfigByAuthManager
 ACBAMWCUD - AppConfigByAuthManagerWithCustomUserDetails
 ACBAMWCUDACF - AppConfigByAuthManagerWithCustomUserDetailsAndCustomFilter
-ACBAMWCUDACFACC - AppConfigByAuthManagerWithCustomUserDetailsAndCustomFilterAndCustomCsrf
+ACBAMWCUDACC - AppConfigByAuthManagerWithCustomUserDetailsAndCustomCsrf
+ACBAMWCUDAC - AppConfigByAuthManagerWithCustomUserDetailsAndCors

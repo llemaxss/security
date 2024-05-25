@@ -23,10 +23,10 @@ public class ACBDB {
 	public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
 		return httpSecurity
 			.httpBasic(Customizer.withDefaults())
-			.authorizeHttpRequests(auth -> {
-				auth.requestMatchers("/hello/security").authenticated();
-				auth.anyRequest().permitAll();
-			})
+			.authorizeHttpRequests(auth -> auth
+				.requestMatchers("/hello/security").authenticated()
+				.anyRequest().permitAll()
+			)
 			.build();
 	}
 

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Cors</title>
+        <style>
+            table {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+
+            th, td {
+                padding: 10px;
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th>errorCors</th>
+                <th>annotationCors</th>
+                <th>configCors</th>
+            </tr>
+            <tr>
+                <td id="errorCors"></td>
+                <td id="annotationCors"></td>
+                <td id="configCors"></td>
+            </tr>
+        </table>
+        <p>Откройте коносль, чтобы увидеть ошибку для errorCors</p>
+        <script>
+            sendRequest('error', 'errorCors');
+            sendRequest('annotation', 'annotationCors');
+            sendRequest('config', 'configCors');
+
+
+            function sendRequest(urlPart, tdId) {
+                // требуется указать адрес отличный от localhost
+                // 127.0.0.1 - считается другим урлом
+                const http = new XMLHttpRequest(),
+                    url = "http://127.0.0.1:8080/cors/" + urlPart;
+
+                http.open('POST', url);
+                http.send();
+
+                http.onreadystatechange = (e) => {
+                    const output = document.getElementById(tdId);
+                    output.innerHTML = http.responseText;
+                }
+            }
+        </script>
+    </body>
+</html>
