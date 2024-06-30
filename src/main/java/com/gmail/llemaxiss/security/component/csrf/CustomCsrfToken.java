@@ -1,4 +1,4 @@
-package com.gmail.llemaxiss.security.components.csrf;
+package com.gmail.llemaxiss.security.component.csrf;
 
 import org.springframework.security.web.csrf.CsrfToken;
 

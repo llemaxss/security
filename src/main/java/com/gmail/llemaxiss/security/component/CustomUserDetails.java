@@ -1,4 +1,4 @@
-package com.gmail.llemaxiss.security.components;
+package com.gmail.llemaxiss.security.component;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

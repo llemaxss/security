@@ -1,11 +1,10 @@
-package com.gmail.llemaxiss.security.components.csrf;
+package com.gmail.llemaxiss.security.component.csrf;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
 
-import java.util.Base64;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;

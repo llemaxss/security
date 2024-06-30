@@ -1,7 +1,7 @@
 package com.gmail.llemaxiss.security.config;
 
-import com.gmail.llemaxiss.security.components.CustomUserDetails;
-import com.gmail.llemaxiss.security.components.csrf.CustomCsrfRepository;
+import com.gmail.llemaxiss.security.component.CustomUserDetails;
+import com.gmail.llemaxiss.security.component.csrf.CustomCsrfRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.Customizer;
