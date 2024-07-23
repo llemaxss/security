@@ -18,8 +18,8 @@ import org.springframework.web.client.RestTemplate;
  * 4) Далее создаются фильтры в {@link ACBAMWCPOTAF_3}, так как они зависият от AuthenticationManager,
  * который создается в {@link ACBAMWCPOTAF_2#authenticationManager(HttpSecurity)}
  */
-@EnableWebSecurity(debug = true)
-@Configuration
+//@EnableWebSecurity(debug = true)
+//@Configuration
 public class ACBAMWCPOTAF {
     @Bean
     public RestTemplate restTemplate() {

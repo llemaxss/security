@@ -8,7 +8,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 
-@Configuration
+//@Configuration
 public class ACBAMWCPOTAF_2 {
 	private UsernamePasswordAuthProvider usernamePasswordAuthProvider;
 	private OtpAuthProvider otpAuthProvider;

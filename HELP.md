@@ -5,3 +5,4 @@
 5. ACBAMWCUDACC - AppConfigByAuthManagerWithCustomUserDetailsAndCustomCsrf
 6. ACBAMWCUDAC - AppConfigByAuthManagerWithCustomUserDetailsAndCors
 7. ACBAMWCPOTAF - AppConfigByAuthManagerWithCustomProvidersOtpTokenAndFilters
+8. ACOA2 - AppConfigOAuth2

@@ -24,7 +24,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-@Component
+//@Component
 public class InitialAuthFilter extends OncePerRequestFilter {
     private AuthenticationManager authenticationManager;
 

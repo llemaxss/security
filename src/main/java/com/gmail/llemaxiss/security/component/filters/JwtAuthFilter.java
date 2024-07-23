@@ -22,7 +22,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-@Component
+//@Component
 public class JwtAuthFilter extends OncePerRequestFilter {
 	@Value("${jwt.signing.key}")
 	private String jwtSigningKey;

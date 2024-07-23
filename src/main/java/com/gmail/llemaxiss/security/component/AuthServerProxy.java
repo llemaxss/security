@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-@Component
+//@Component
 public class AuthServerProxy {
     public static final String USERNAME_HEADER = "username";
     public static final String PASSWORD_HEADER = "password";
